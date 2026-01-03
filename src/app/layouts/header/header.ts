@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,23 +8,32 @@ import { Router } from '@angular/router';
   styleUrl: './header.scss',
 })
 export class Header {
-  mobileOpen = signal(false);
+  // UI state
   profileOpen = signal(false);
+  isFullscreen = signal(false);
 
-  constructor(private router: Router) {
-    this.router.events.subscribe(() => this.closeAll());
-  }
-
-  toggleMobile() {
-    this.mobileOpen.update((v: any) => !v);
-  }
+  searchChange = output<string>();
 
   toggleProfile() {
-    this.profileOpen.update((v: any) => !v);
+    this.profileOpen.update(v => !v);
   }
 
   closeAll() {
-    this.mobileOpen.set(false);
     this.profileOpen.set(false);
+  }
+
+  onSearch(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.searchChange.emit(value);
+  }
+
+  toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      this.isFullscreen.set(true);
+    } else {
+      document.exitFullscreen();
+      this.isFullscreen.set(false);
+    }
   }
 }
