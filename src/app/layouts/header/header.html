@@ -1,17 +1,13 @@
 <nav
-  class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur
-         border-b border-white/10"
+  class="bg-slate-900/80 dark:bg-slate-900 text-dark-800 dark:text-white sticky top-0 z-50 bg-slate-900/80 backdrop-blur border-b border-white/10"
   (click)="closeAll()"
 >
   <div class="mx-auto max-w-7xl px-4">
     <div class="flex h-16 items-center justify-between">
-
       <!-- LEFT: Logo -->
       <div class="flex items-center gap-2">
         <img class="h-8 w-8" src="images/image.png" alt="TodoApp" />
-        <span class="text-white font-semibold tracking-wide">
-          TodoApp
-        </span>
+        <span class=" font-semibold tracking-wide"> TodoApp </span>
       </div>
 
       <!-- CENTER: Global Search -->
@@ -20,14 +16,24 @@
           type="text"
           placeholder="Search todos..."
           (input)="onSearch($event)"
-          class="w-full rounded-md bg-white/5 px-3 py-2
-                 text-sm text-white placeholder-gray-400
-                 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          class="w-full rounded-md bg-white/5 px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
       <!-- RIGHT: Actions -->
       <div class="flex items-center gap-4">
+        <!-- Theme Toggle -->
+        <button
+          (click)="theme.toggle()"
+          class="text-gray-400 hover:text-white transition"
+          title="Toggle theme"
+        >
+          @if (theme.darkMode()) {
+          <i class="fa-solid fa-sun"></i>
+          } @else {
+          <i class="fa-solid fa-moon"></i>
+          }
+        </button>
 
         <!-- Fullscreen toggle -->
         <button
@@ -36,42 +42,26 @@
           title="Toggle fullscreen"
         >
           @if (isFullscreen()) {
-            <i class="fa-solid fa-minimize"></i>
+          <i class="fa-solid fa-minimize"></i>
           } @else {
-            <i class="fa-solid fa-maximize"></i>
+          <i class="fa-solid fa-maximize"></i>
           }
         </button>
 
         <!-- Profile -->
         <div class="relative">
-          <button
-            (click)="$event.stopPropagation(); toggleProfile()"
-            class="flex rounded-full"
-          >
-            <img
-              class="h-8 w-8 rounded-full"
-              src="https://i.pravatar.cc/100"
-            />
+          <button (click)="$event.stopPropagation(); toggleProfile()" class="flex rounded-full">
+            <img class="h-8 w-8 rounded-full" src="https://i.pravatar.cc/100" />
           </button>
 
           @if (profileOpen()) {
-            <div
-              class="absolute right-0 mt-2 w-44 rounded-md
-                     bg-gray-800 py-1 shadow-lg"
-            >
-              <a class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5">
-                Profile
-              </a>
-              <a class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5">
-                Settings
-              </a>
-              <a class="block px-4 py-2 text-sm text-red-400 hover:bg-white/5">
-                Logout
-              </a>
-            </div>
+          <div class="absolute right-0 mt-2 w-44 rounded-md bg-gray-800 py-1 shadow-lg">
+            <a class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5"> Profile </a>
+            <a class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5"> Settings </a>
+            <a class="block px-4 py-2 text-sm text-red-400 hover:bg-white/5"> Logout </a>
+          </div>
           }
         </div>
-
       </div>
     </div>
   </div>

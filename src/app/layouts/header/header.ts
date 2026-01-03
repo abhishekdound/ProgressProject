@@ -1,5 +1,6 @@
 import { Component, output, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { Theme } from '../../theme/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +9,12 @@ import { Router } from '@angular/router';
   styleUrl: './header.scss',
 })
 export class Header {
-  // UI state
   profileOpen = signal(false);
   isFullscreen = signal(false);
 
   searchChange = output<string>();
+  
+  constructor(public theme: Theme) {}
 
   toggleProfile() {
     this.profileOpen.update(v => !v);
