@@ -1,24 +1,16 @@
 <!-- Overlay -->
 <div
-  class="fixed inset-0 z-50 flex items-center justify-center
-         bg-black/40 backdrop-blur-sm"
+  class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 backdrop-blur-sm"
   (click)="close.emit()"
 >
   <!-- Modal -->
   <div
-    class="w-full max-w-md rounded-2xl
-           bg-white dark:bg-slate-900
-           p-6 shadow-xl"
+    class="w-full max-w-md rounded-2xl bg-white dark:bg-slate-900 p-6 shadow-xl"
     (click)="$event.stopPropagation()"
   >
     <!-- Header -->
-    <div class="mb-4 flex items-center justify-between">
-      <h3
-        class="text-lg font-semibold
-               text-gray-900 dark:text-white"
-      >
-        Add Task
-      </h3>
+    <div class="mb-5 flex items-center justify-between">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Add New Task</h3>
 
       <button
         class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
@@ -30,60 +22,61 @@
 
     <!-- Form -->
     <div class="space-y-4">
-      <!-- Title -->
-      <input
-        type="text"
-        placeholder="Task title"
-        (input)="title.set($any($event.target).value)"
-        class="w-full rounded-md
-               border border-gray-200 dark:border-white/10
-               bg-transparent px-3 py-2
-               text-gray-900 dark:text-white
-               placeholder-gray-400
-               focus:outline-none focus:ring-2 focus:ring-indigo-500"
-      />
+      <!-- Task Name -->
+      <div>
+        <label class="block text-sm text-gray-500 mb-1"> What task are you adding? </label>
+        <input
+          type="text"
+          placeholder="e.g. Grocery shopping"
+          (input)="taskName.set($any($event.target).value)"
+          class="w-full rounded-md border border-gray-200 dark:border-white/10 bg-transparent px-3 py-2 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
 
       <!-- Category -->
-      <select
-        (change)="category.set($any($event.target).value)"
-        class="w-full rounded-md
-               border border-gray-200 dark:border-white/10
-               bg-transparent px-3 py-2
-               text-gray-900 dark:text-white
-               focus:outline-none focus:ring-2 focus:ring-indigo-500"
-      >
-        <option>Marketing</option>
-        <option>Learning</option>
-        <option>Design</option>
-      </select>
+      <div>
+        <label class="block text-sm text-gray-500 mb-1"> Which category does it belong to? </label>
+        <input
+          type="text"
+          placeholder="e.g. Marketing / Learning / Design"
+          (input)="category.set($any($event.target).value)"
+          class="w-full rounded-md border border-gray-200 dark:border-white/10 bg-transparent px-3 py-2 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
 
-      <!-- Time -->
-      <input
-        type="time"
-        (input)="time.set($any($event.target).value)"
-        class="w-full rounded-md
-               border border-gray-200 dark:border-white/10
-               bg-transparent px-3 py-2
-               text-gray-900 dark:text-white
-               focus:outline-none focus:ring-2 focus:ring-indigo-500"
-      />
+      <!--Date and Time -->
+
+      <div>
+        <label class="block text-sm text-gray-500 mb-1"> When should it be done? </label>
+
+        <input
+          type="date"
+          (input)="date.set($any($event.target).value)"
+          class="no-calendar-icon w-full rounded-md border border-gray-200 dark:border-white/10 bg-transparent px-3 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm text-gray-500 mb-1"> At what time should it be done? </label>
+        <input
+          type="time"
+          (input)="time.set($any($event.target).value)"
+          class="w-full rounded-md border border-gray-200 dark:border-white/10 bg-transparent px-3 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
     </div>
 
     <!-- Actions -->
     <div class="mt-6 flex justify-end gap-3">
       <button
-        class="rounded-md px-4 py-2
-               text-sm text-gray-600 dark:text-gray-300
-               hover:bg-gray-100 dark:hover:bg-white/10"
+        class="rounded-md px-4 py-2 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10"
         (click)="close.emit()"
       >
         Cancel
       </button>
 
       <button
-        class="rounded-md bg-indigo-600
-               px-4 py-2 text-sm font-medium text-white
-               hover:bg-indigo-700"
+        class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
         (click)="submit()"
       >
         Add Task

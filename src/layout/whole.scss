@@ -1,0 +1,18 @@
+/* Smooth scrolling */
+main {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar (WebKit) */
+main::-webkit-scrollbar {
+  width: 8px;
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color: rgba(2, 56, 131, 0.4); /* slate */
+  border-radius: 4px;
+}
+
+main::-webkit-scrollbar-track {
+  background: transparent;
+}

@@ -1,7 +1,12 @@
-<div class="min-h-screen flex flex-col">
+<div class="h-screen flex flex-col">
   <app-header></app-header>
 
-  <main class="bg-gray-100 dark:bg-slate-950 text-gray-900 dark:text-gray-100 flex-1">
+  <!-- Scrollable content area -->
+  <main
+    class="flex-1 overflow-y-auto
+           bg-red-100 dark:bg-slate-950
+           text-gray-900 dark:text-gray-100"
+  >
     <router-outlet></router-outlet>
   </main>
 
