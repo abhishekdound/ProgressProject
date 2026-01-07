@@ -1,0 +1,45 @@
+<div
+  class="group flex items-center justify-between
+         rounded-lg border border-white/10
+         bg-white dark:bg-slate-800
+         px-4 py-3 mb-2"
+>
+  <!-- Left -->
+  <div class="flex items-center gap-3">
+    <input
+      type="checkbox"
+      class="h-4 w-4 accent-indigo-600"
+    />
+
+    <span class="text-gray-800 dark:text-gray-100">
+      Grocery Shopping
+    </span>
+  </div>
+
+  <!-- Right -->
+  <div class="flex items-center gap-4 text-sm text-gray-400">
+    <!-- Time -->
+    <span class="flex items-center gap-1">
+      <i class="fa-regular fa-clock"></i>
+      10:30 AM
+    </span>
+
+    <!-- Edit -->
+    <button
+      class="opacity-0 group-hover:opacity-100
+             hover:text-indigo-500 transition"
+      title="Edit"
+    >
+      <i class="fa-solid fa-pen"></i>
+    </button>
+
+    <!-- Delete -->
+    <button
+      class="opacity-0 group-hover:opacity-100
+             hover:text-red-500 transition"
+      title="Delete"
+    >
+      <i class="fa-solid fa-trash"></i>
+    </button>
+  </div>
+</div>
