@@ -16,15 +16,15 @@
     <!-- Add Task -->
     <button
       class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 transition"
-      (click)="showAddTask.set(true)"
+      (click)="ui.showAddTask.set(true)"
     >
       <i class="fa-solid fa-plus"></i>
       Add task
     </button>
 
     <!-- Modal -->
-    @if (showAddTask()) {
-    <app-add-task-modal (close)="showAddTask.set(false)" (add)="handleAddTask($event)" />
+    @if (ui.showAddTask()) {
+    <app-add-task-modal (close)="ui.showAddTask.set(false)" (add)="handleAddTask($event)" />
     }
   </div>
 </section>

@@ -2,7 +2,16 @@ import { Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class Ui {
+  showHeaderSearch = signal(false);
   showAddTask = signal(false);
+
+  openHeaderSearch() {
+    this.showHeaderSearch.set(true);
+  }
+
+  closeHeaderSearch() {
+    this.showHeaderSearch.set(false);
+  }
 
   openAddTask() {
     this.showAddTask.set(true);
@@ -14,7 +23,15 @@ export class Ui {
     document.body.style.overflow = '';
   }
 
-  addTask(task: any) {
-    console.log(task);
+  handleEscape() {
+    if (this.showHeaderSearch()) {
+      this.closeHeaderSearch();
+      return;
+    }
+
+    if (this.showAddTask()) {
+      this.closeAddTask();
+      return;
+    }
   }
 }
