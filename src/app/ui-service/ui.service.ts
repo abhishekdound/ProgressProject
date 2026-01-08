@@ -23,7 +23,7 @@ export class Ui {
     document.body.style.overflow = '';
   }
 
-  handleEscape() {
+  closeAnyOpen() {
     if (this.showHeaderSearch()) {
       this.closeHeaderSearch();
       return;

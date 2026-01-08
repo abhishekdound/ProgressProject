@@ -16,6 +16,7 @@ export class Header {
   @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
 
   searchChange = output<string>();
+console: any;
   
   constructor(public theme: Theme,public ui: Ui) {
     effect(() => {

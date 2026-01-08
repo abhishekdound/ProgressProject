@@ -24,7 +24,13 @@ export class App {
 
     // ESC → Close modal
      if (event.key === 'Escape') {
-      this.ui.handleEscape();
+      this.ui.closeAnyOpen();
     }
+  }
+
+  
+  @HostListener('document:click')
+  handleDocumentClick() {
+    this.ui.closeAnyOpen();
   }
 }
