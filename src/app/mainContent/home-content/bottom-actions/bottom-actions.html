@@ -1,10 +1,24 @@
-<section class="mt-10 mb-6 flex justify-center">
+<section
+  class="fixed
+         bottom-20 right-6   <!-- 👈 adjust bottom based on footer height -->
+         z-40"
+>
   <div
-    class="flex items-center gap-6 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur border border-gray-200 dark:border-white/10 px-6 py-4 shadow-sm"
+    class="flex items-center gap-6
+           rounded-2xl
+           bg-white/90 dark:bg-slate-900/90
+           backdrop-blur
+           border border-gray-200 dark:border-white/10
+           px-6 py-4
+           shadow-lg"
   >
     <!-- View All Lists -->
     <button
-      class="flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+      class="flex items-center gap-2
+             text-sm font-medium
+             text-gray-600 dark:text-gray-300
+             hover:text-indigo-600 dark:hover:text-indigo-400
+             transition"
     >
       <i class="fa-solid fa-list"></i>
       View all lists
@@ -15,7 +29,14 @@
 
     <!-- Add Task -->
     <button
-      class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 transition"
+      class="flex items-center gap-2
+             rounded-lg
+             bg-indigo-600
+             px-4 py-2
+             text-sm font-medium
+             text-white
+             hover:bg-indigo-700
+             transition"
       (click)="$event.stopPropagation(); ui.openAddTask('global')"
     >
       <i class="fa-solid fa-plus"></i>
