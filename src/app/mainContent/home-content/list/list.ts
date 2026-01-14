@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Ui } from '../../../ui-service/ui.service';
 
 @Component({
   selector: 'app-list',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './list.scss',
 })
 export class List {
+  constructor(public ui: Ui) {}
 
 }

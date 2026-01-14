@@ -9,7 +9,7 @@
   </main>
 
   @if (ui.showAddTask()) {
-  <app-add-task-modal (close)="ui.closeAddTask()" />
+  <app-add-task-modal [mode]="ui.addTaskMode()" (close)="ui.closeAddTask()" />
   }
 
   <app-footer></app-footer>

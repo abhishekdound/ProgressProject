@@ -16,7 +16,7 @@
     <!-- Add Task -->
     <button
       class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 transition"
-      (click)="$event.stopPropagation(); ui.openAddTask()"
+      (click)="$event.stopPropagation(); ui.openAddTask('global')"
     >
       <i class="fa-solid fa-plus"></i>
       Add task

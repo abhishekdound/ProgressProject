@@ -1,9 +1,10 @@
 import { Injectable, signal } from '@angular/core';
-
+export type AddTaskMode = 'global' | 'today';
 @Injectable({ providedIn: 'root' })
 export class Ui {
   showHeaderSearch = signal(false);
   showAddTask = signal(false);
+   addTaskMode = signal<AddTaskMode>('global');
 
   openHeaderSearch() {
     this.showHeaderSearch.set(true);
@@ -13,7 +14,8 @@ export class Ui {
     this.showHeaderSearch.set(false);
   }
 
-  openAddTask() {
+   openAddTask(mode: AddTaskMode = 'global') {
+    this.addTaskMode.set(mode);
     this.showAddTask.set(true);
     document.body.style.overflow = 'hidden';
   }

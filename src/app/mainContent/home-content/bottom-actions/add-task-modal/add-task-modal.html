@@ -44,26 +44,20 @@
         />
       </div>
 
-      <!--Date and Time -->
-
+      <!-- 🔥 DATE (ONLY FOR GLOBAL MODE) -->
+      @if (mode === 'global') {
       <div>
         <label class="block text-sm text-gray-500 mb-1"> When should it be done? </label>
-
-        <input
-          type="date"
-          (input)="date.set($any($event.target).value)"
-          class="no-calendar-icon w-full rounded-md border border-gray-200 dark:border-white/10 bg-transparent px-3 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        />
+        <input type="date" class="no-calendar-icon input" />
       </div>
+      }
 
+      <!-- Time -->
       <div>
-        <label class="block text-sm text-gray-500 mb-1"> At what time should it be done? </label>
-        <input
-          type="time"
-          (input)="time.set($any($event.target).value)"
-          class="w-full rounded-md border border-gray-200 dark:border-white/10 bg-transparent px-3 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        />
+        <label class="block text-sm text-gray-500 mb-1"> At what time? </label>
+        <input type="time" class="input" />
       </div>
+
     </div>
 
     <!-- Actions -->

@@ -5,7 +5,7 @@ import { Ui } from '../../../ui-service/ui.service';
 
 @Component({
   selector: 'app-bottom-actions',
-  imports: [AddTaskModal],
+  imports: [],
   templateUrl: './bottom-actions.html',
   styleUrl: './bottom-actions.scss',
 })
